@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/joao-pbc/Industria4.0/issues"
   },
-  "homepage": "https://github.com/joao-pbc/Industria4.0#readme"
+  "homepage": "https://github.com/joao-pbc/Industria4.0#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
 }
