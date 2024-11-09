@@ -37,11 +37,6 @@ function connectToDatabase() {
 
     con.connect(function (err) {
         if (err) throw err;
-        
-        let data = con.query("select * from pedidos LIMIT 1", function(err, result, fields){
-            console.log(result);
-        });
-        
-        
+        return con.query("select * from pedidos LIMIT 1", function(result){});
     });
 }
