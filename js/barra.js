@@ -3,10 +3,12 @@ google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
   var data = google.visualization.arrayToDataTable([
     ["Element", "Density", { role: "style" } ],
-    ["Copper", 8.94, "#b87333"],
-    ["Silver", 10.49, "silver"],
-    ["Gold", 19.30, "gold"],
-    ["Platinum", 21.45, "color: #e5e4e2"]
+    ["Pedidos em montagem", 8.94, "#b87333"],
+    ["Pedidos em processos", 10.49, "silver"],
+    ["Pedidos Finalizados", 19.30, "gold"],
+    ["Pedidos Liberados", 21.45, "color: #e5e4e2"],
+    ["Pedidos Cancelados", 10.49, "silver"],
+
   ]);
 
   var view = new google.visualization.DataView(data);
@@ -18,7 +20,7 @@ function drawChart() {
                    2]);
 
   var options = {
-    title: "Density of Precious Metals, in g/cm^3",
+    title: "Faturamento Diário",
     width: 600,
     height: 400,
     bar: {groupWidth: "95%"},
