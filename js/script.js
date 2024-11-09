@@ -3,14 +3,14 @@ google.charts.setOnLoadCallback(drawTable);
 
 function drawTable() {
   var data = new google.visualization.DataTable();
-  data.addColumn('string', 'Name');
-  data.addColumn('number', 'Salary');
-  data.addColumn('boolean', 'Full Time Employee');
+  data.addColumn('string', 'Nome');
+  data.addColumn('number', 'Quantidade total');
+  data.addColumn('boolean', 'Produto em falta');
   data.addRows([
-    ['Mike',  {v: 10000, f: '$10,000'}, true],
-    ['Jim',   {v:8000,   f: '$8,000'},  false],
-    ['Alice', {v: 12500, f: '$12,500'}, true],
-    ['Bob',   {v: 7000,  f: '$7,000'},  true]
+    ['Peça Vermelha',  {v: 10000, f: '10 unidades'}, true],
+    ['Peça Azul',   {v:8000,   f: '15 unidades'},  false],
+    ['Peça Preta', {v: 12500, f: '11 unidades'}, true],
+    ['Peça Amarela',   {v: 7000,  f: '3 unidades'},  true]
   ]);
 
   var table = new google.visualization.Table(document.getElementById('div2'));
