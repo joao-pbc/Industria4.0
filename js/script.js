@@ -1,7 +1,7 @@
 google.charts.load('current', {'packages':['table']});
 google.charts.setOnLoadCallback(drawTable);
 
-function drawTable() {
+function drawTable(data) {
   var data = new google.visualization.DataTable();
   data.addColumn('string', 'Nome');
   data.addColumn('number', 'Quantidade total');
