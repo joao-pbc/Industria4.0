@@ -5,7 +5,7 @@ function drawTable() {
   var data = new google.visualization.DataTable();
   data.addColumn('string', 'Nome');
   data.addColumn('number', 'Quantidade total');
-  data.addColumn('boolean', 'Produto em falta');
+  data.addColumn('boolean', 'Capacidade');
   data.addRows([
     ['Peça Vermelha',  {v: 10000, f: '10 unidades'}, true],
     ['Peça Azul',   {v:8000,   f: '15 unidades'},  false],
