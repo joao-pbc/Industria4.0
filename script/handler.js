@@ -29,14 +29,19 @@ function connectToDatabase() {
     var mysql = require('mysql');
 
     var con = mysql.createConnection({
-        host: "10.3.16.73:3306",
+        host: "127.0.0.1",
         user: "root",
-        password: ""
+        password: "",
+        database: "projeto_industria"
     });
 
     con.connect(function (err) {
         if (err) throw err;
-        console.log("Connected!");
-        /**FAZER AS QUERIES AQUI DUTRINHA SUA CADELA */
+        
+        let data = con.query("select * from pedidos LIMIT 1", function(err, result, fields){
+            console.log(result);
+        });
+        
+        
     });
 }
