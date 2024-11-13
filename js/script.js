@@ -12,8 +12,11 @@ function drawTable(data) {
     ['Peça Preta', {v: 12500, f: '11 unidades'}, true],
     ['Peça Amarela',   {v: 7000,  f: '3 unidades'},  true]
   ]);
+  var options = {
+    backgroundColor:'#353238',
+  }
 
   var table = new google.visualization.Table(document.getElementById('div2'));
 
-  table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+  table.draw(data, {showRowNumber: true, width: '100%', height: '100%'},options);
 }
