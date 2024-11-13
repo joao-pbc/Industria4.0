@@ -1,42 +1,19 @@
-// google.charts.load('current', {'packages':['corechart']});
-// google.charts.setOnLoadCallback(drawChart);
 
-
-//TEMPLATE PRA SETAR O GRÀFICO DE PIZZA
-// function desenharGraficoDeProdutos(data) {
-//     var data = google.visualization.arrayToDataTable([
-//         ['Task', 'Hours per Day'],
-//         ['Work',     11],
-//         ['Eat',      2],
-//         ['Commute',  2],
-//         ['Watch TV', 2],
-//         ['Sleep',    7]
-//       ]);
-
-//       var options = {
-//         title: 'Quantidade de itens'
-//       };
-
-//       var chart = new google.visualization.PieChart(document.getElementById(''));
-
-//       chart.draw(data, options);
-// }
-
-connectToDatabase();
-
-//TEMPLATE PRA CONNECTAR COM O BANCO
-function connectToDatabase() {
-    var mysql = require('mysql');
-
-    var con = mysql.createConnection({
-        host: "127.0.0.1",
-        user: "root",
-        password: "",
-        database: "projeto_industria"
-    });
-
-    con.connect(function (err) {
-        if (err) throw err;
-        return con.query("select * from pedidos LIMIT 1", function(result){});
+const url = 'http://localhost:5678/api/Products';
+function connect(){
+    fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json(); // Parse the JSON from the response
+    })
+    .then(data => {
+      console.log(data); // Handle the data from the response
+    })
+    .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
     });
 }
+
+connect();
