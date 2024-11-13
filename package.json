@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon api.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,8 +16,5 @@
   "bugs": {
     "url": "https://github.com/joao-pbc/Industria4.0/issues"
   },
-  "homepage": "https://github.com/joao-pbc/Industria4.0#readme",
-  "dependencies": {
-    "mysql": "^2.18.1"
-  }
+  "homepage": "https://github.com/joao-pbc/Industria4.0#readme"
 }
