@@ -2,7 +2,7 @@
 
 * {
 	background-color: #262626;
-	border-radius: 20px;
+	border-radius: 10px;
 }
 
 #cssportal-grid {
@@ -40,23 +40,33 @@
 #div2 {
 	grid-area: 2 / 4 / 6 / 6;
 	position: relative;
+	background-color: #6A6868;
+	color: white;
+}
 
+.google-visualization-table-table th {
+	background-color: #6A6868;
+	color: white;
+	text-align: center;
+}
+
+.google-visualization-table-table td {
+	background-color: #6A6868;
+	color: white;
+	text-align: center !important;
 }
 
 #div3 {
 	grid-area: 2 / 1 / 4 / 4;
-	background-color: rgba(172, 199, 41, 0.5);
 	position: relative;
 }
 
 #div4 {
 	grid-area: 4 / 1 / 6 / 3;
-	background-color: rgba(109, 155, 235, 0.5);
 	position: relative;
 }
 
 #div5 {
 	grid-area: 4 / 3 / 6 / 4;
-	background-color: rgba(24, 56, 250, 0.5);
 	position: relative;
 }
