@@ -7,7 +7,7 @@ async function drawTable() {
   var options = {
     width: "100%",
     height: "100%",
-    backgroundColor: "#6A6868",
+    allowHtml: true
   };
   table.draw(data, options);
 }

@@ -21,7 +21,7 @@ function drawChart() {
     2]);
 
   var options = {
-    title: "Faturamento Diário",
+    title: "Status de Pedidos",
     titleTextStyle: {
       color: 'white',
     },
