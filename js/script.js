@@ -2,7 +2,7 @@ google.charts.load('current', {'packages':['table']});
 google.charts.setOnLoadCallback(drawTable);
 
 async function drawTable() {
-  var data = await drawPieChart("Inventory");
+  var data = await chamarApiComUrl("Inventory");
   var dataTable = getDataTableForTable(data);
   var table = new google.visualization.Table(document.getElementById('div2'));
   var options = {

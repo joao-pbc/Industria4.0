@@ -1,24 +1,53 @@
 google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 
-function drawChart() {
-  var data = google.visualization.arrayToDataTable([
-    ['Mes', 'Faturamento'],
-    ['Jan.', 1000],
-    ['Fev.', 1170],
-    ['Mar.', 660],
-    ['Abr.', 1030],
-    ['Mai.', 1500],
-    ['Jun.', 950],
-    ['Jul.', 870],
-    ['Ago.', 1200],
-    ['Set', 999],
-    ['Out.', 1245],
-    ['Nov.', 900],
-    ['Dez.', 2000],
-  ]);
+async function drawChart() {
+  var data = await chamarApiComUrl("ProductionOrders");
+  var dataTable = getDataTableForTable2(data.productionOrders);  // Passando os dados de productionOrders
 
-  var options = {
+  var chart = new google.visualization.LineChart(document.getElementById('div4'));
+  var options = getOptions();
+  chart.draw(dataTable, options);  // Passando o dataTable para desenhar o gráfico
+}
+
+function getDataTableForTable2(productionOrders) {
+  var dataTable = new google.visualization.DataTable();
+  
+  // Adicionando as colunas necessárias
+  dataTable.addColumn('string', 'Status do Pedido');  // Coluna para o eixo X (status do pedido)
+  dataTable.addColumn('number', 'Quantidade de Pedidos');  // Coluna para o eixo Y (quantidade de pedidos)
+
+  // Verificando se productionOrders é um array válido
+  if (productionOrders && Array.isArray(productionOrders)) {
+    // Criando um objeto para contar as ocorrências de cada productionOrderStatusId
+    var statusCount = {};
+
+    // Contando as ocorrências de cada status
+    productionOrders.forEach(order => {
+      if (order.productionOrderStatusId !== undefined) {
+        if (statusCount[order.productionOrderStatusId]) {
+          statusCount[order.productionOrderStatusId] += 1;  // Incrementa a contagem para esse status
+        } else {
+          statusCount[order.productionOrderStatusId] = 1;  // Inicializa a contagem para esse status
+        }
+      }
+    });
+
+    // Adicionando as linhas no DataTable com a contagem por status
+    for (var status in statusCount) {
+      if (statusCount.hasOwnProperty(status)) {
+        // Adiciona uma linha para cada status com a sua contagem
+        dataTable.addRow([status, statusCount[status]]);
+      }
+    }
+  } else {
+    console.error('productionOrders não é um array válido', productionOrders);
+  }
+
+  return dataTable;  // Retornando o DataTable preenchido
+}
+function getOptions() {
+  return {
     title: 'Faturamento Mensal', 
     titleTextStyle: {
       color: 'white',  
@@ -55,7 +84,4 @@ function drawChart() {
       0: { color: '#F2E205' } 
     }
   };
-
-  var chart = new google.visualization.LineChart(document.getElementById('div4'));
-  chart.draw(data, options);
 }
