@@ -38,10 +38,15 @@
 }
 
 #div2 {
-	grid-area: 2 / 4 / 6 / 6;
-	position: relative;
-	background-color: #6A6868;
-	color: white;
+    grid-area: 2 / 4 / 6 / 6;
+    position: relative;
+    color: white;
+    overflow: auto; 
+}
+
+#productionOrders {
+    width: 100%; 
+    border-collapse: collapse; 
 }
 
 .google-visualization-table-table th {
